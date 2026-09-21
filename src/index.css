@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --color-secondary: #904d00;
+  --color-secondary-container: #fe932c;
+  --color-on-secondary: #ffffff;
+  --color-secondary-fixed: #ffdcc3;
+  --color-secondary-fixed-dim: #ffb77d;
+  --color-on-secondary-fixed: #2f1500;
+  --color-on-secondary-container: #663500;
+  --color-primary: #000000;
+  --color-primary-container: #131b2e;
+  --color-on-primary: #ffffff;
+  --color-background: #f7f9fb;
+  --color-surface: #f7f9fb;
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #45464d;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-outline: #76777d;
+  --color-outline-variant: #c6c6cd;
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eff1f3;
+
+  --font-serif: "Merriweather", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f2f4f6;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c6c6cd;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #904d00;
+}
+
+/* Typography styles matching HTML specifications */
+.font-display-lg {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .text-display-lg-mobile {
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: -0.01em;
+  }
+}
+.font-headline-xl {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 36px;
+  line-height: 46px;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+.font-headline-lg {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 28px;
+  line-height: 38px;
+  font-weight: 400;
+}
+.font-headline-md {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 700;
+}
+.font-headline-sm {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+}
+.font-quote {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 19px;
+  line-height: 32px;
+  font-weight: 300;
+}
+.font-body-xl {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 20px;
+  line-height: 34px;
+  font-weight: 300;
+}
+.font-body-lg {
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  line-height: 28px;
+  font-weight: 400;
+}
+.font-body-md {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.font-body-sm {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.font-label-lg {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+}
+.font-label-md {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+.font-label-sm {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}

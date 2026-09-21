@@ -1,0 +1,6 @@
+{
+  "name": "Sophia Academy - Viện Triết Học Khai Phóng",
+  "description": "Nền tảng trực quan hoá tri thức triết học từ Hy Lạp cổ đại, tư tưởng Phương Đông huyền bí đến triết học hiện đại.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
