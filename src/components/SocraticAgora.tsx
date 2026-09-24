@@ -74,21 +74,26 @@ export const SocraticAgora: React.FC<SocraticAgoraProps> = ({
           </div>
 
           <h3 className="font-serif text-[20px] md:text-[24px] font-bold text-[#191c1e] mb-3 leading-snug">
-            "Tại sao nói Nhà nước là một hiện tượng lịch sử có tính giai cấp, và phân tích mối quan hệ giữa điều kiện khách quan với nhân tố chủ quan trong Cách mạng Tháng Tám năm 1945 ở Việt Nam?"
+            "Từ nội dung về Nhà nước trong triết học Mác - Lênin. Theo các bạn, nhà nước nào là nhà nước toàn dân, nhà nước của mọi giai cấp?"
           </h3>
 
           <p className="font-sans text-[14px] md:text-[15px] text-[#45464d] mb-6 leading-relaxed">
-            Theo quan điểm của C.Mác, Ph.Ăngghen và V.I. Lênin, nhà nước nảy sinh từ xã hội nhưng đứng trên xã hội khi mâu thuẫn giai cấp không thể điều hòa được. Trong khi đó, cách mạng xã hội muốn bùng nổ và thắng lợi đòi hỏi sự kết hợp nhuần nhuyễn giữa điều kiện khách quan chín muồi (tình thế cách mạng) với nhân tố chủ quan (năng lực tổ chức của Đảng tiên phong và ý chí quật khởi của quần chúng nhân dân).
+            Theo Mác - Lênin không tồn tại khái niệm "nhà nước của mọi giai cấp". Nhà nước sinh ra từ mâu thuẫn giai cấp không thể điều hòa, nên luôn mang bản chất giai cấp.
+            Không được đánh đồng việc nhà nước thực hiện chức năng xã hội (chăm lo cái chung) với việc nhà nước trung lập (không có tính giai cấp). <br />
+            Nhà nước vô sản mang bản chất giai cấp công nhân, nhưng là bước tiến lịch sử vì đây là sự thống trị của số đông (nhân dân lao động) đối với số ít (thế lực phản động). <br />
+            <strong>Một ví dụ liên hệ thực tiễn:</strong>  <br />
+            Nhà nước pháp quyền XHCN Việt Nam. Khái niệm "của dân, do dân, vì dân" không có nghĩa là mất tính giai cấp. <br />
+            Nhà nước này đặt dưới sự lãnh đạo của Đảng Cộng sản — nơi lợi ích của giai cấp công nhân thống nhất hoàn toàn với lợi ích toàn dân tộc. <br />
+            Kết luận: "Nhà nước toàn dân" không phải là nhà nước đứng ngoài giai cấp, mà là nhà nước mang bản chất giai cấp công nhân nhưng phục vụ lợi ích của đại đa số quần chúng nhân dân lao động.
           </p>
 
           {/* Social Proof & CTA row */}
-          <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-[#c6c6cd]/80 mb-6">
+          <div className={`flex flex-wrap items-center justify-between gap-4 py-4 border-y border-[#c6c6cd]/80 ${isFormOpen || comments.length > 0 ? 'mb-6' : ''}`}>
             <div className="flex items-center space-x-6 text-sm">
               <button
                 onClick={handleSupportTopic}
-                className={`flex items-center gap-2 transition-colors cursor-pointer ${
-                  hasAgreedTopic ? 'text-[#904d00] font-bold' : 'text-[#45464d] hover:text-[#191c1e]'
-                }`}
+                className={`flex items-center gap-2 transition-colors cursor-pointer ${hasAgreedTopic ? 'text-[#904d00] font-bold' : 'text-[#45464d] hover:text-[#191c1e]'
+                  }`}
               >
                 <span className="material-symbols-outlined text-lg">
                   {hasAgreedTopic ? 'thumb_up' : 'thumb_up_off'}
@@ -175,45 +180,51 @@ export const SocraticAgora: React.FC<SocraticAgoraProps> = ({
             </form>
           )}
 
-          {/* Comment Stream */}
-          <div className="space-y-4">
-            {comments.map((comment) => (
-              <div
-                key={comment.id}
-                className="p-4 rounded-lg bg-[#ffffff] border border-[#c6c6cd]/70 space-y-2 hover:border-[#904d00]/50 transition-colors"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-[#e6e8ea] text-[#191c1e] flex items-center justify-center font-serif text-xs font-bold border border-[#c6c6cd]">
-                      {comment.author.charAt(0)}
+          {/* Comment Stream - Chỉ hiển thị khi có người đóng góp ý kiến */}
+          {comments.length > 0 && (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between pb-1 border-b border-[#e2e4e8]">
+                <span className="font-sans text-xs font-semibold uppercase tracking-wider text-[#76777d]">
+                  Ý kiến đóng góp từ người đọc ({comments.length})
+                </span>
+              </div>
+              {comments.map((comment) => (
+                <div
+                  key={comment.id}
+                  className="p-4 rounded-lg bg-[#ffffff] border border-[#c6c6cd]/70 space-y-2 hover:border-[#904d00]/50 transition-colors"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-full bg-[#e6e8ea] text-[#191c1e] flex items-center justify-center font-serif text-xs font-bold border border-[#c6c6cd]">
+                        {comment.author.charAt(0).toUpperCase()}
+                      </div>
+                      <div>
+                        <span className="font-sans text-[13px] font-bold text-[#191c1e] block leading-tight">
+                          {comment.author}
+                        </span>
+                        <span className="font-sans text-[11px] text-[#76777d]">
+                          {comment.role} • {comment.timeAgo}
+                        </span>
+                      </div>
                     </div>
-                    <div>
-                      <span className="font-sans text-[13px] font-bold text-[#191c1e] block leading-tight">
-                        {comment.author}
-                      </span>
-                      <span className="font-sans text-[11px] text-[#76777d]">
-                        {comment.role} • {comment.timeAgo}
-                      </span>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => onLikeComment(comment.id)}
-                    className={`flex items-center gap-1 text-xs px-2 py-1 rounded transition-colors cursor-pointer ${
-                      comment.userLiked
+                    <button
+                      onClick={() => onLikeComment(comment.id)}
+                      className={`flex items-center gap-1 text-xs px-2 py-1 rounded transition-colors cursor-pointer ${comment.userLiked
                         ? 'bg-[#ffdcc3] text-[#6e3900] font-bold'
                         : 'text-[#45464d] hover:bg-[#f2f4f6]'
-                    }`}
-                  >
-                    <span className="material-symbols-outlined text-sm">thumb_up</span>
-                    <span>{comment.likes}</span>
-                  </button>
+                        }`}
+                    >
+                      <span className="material-symbols-outlined text-sm">thumb_up</span>
+                      <span>{comment.likes}</span>
+                    </button>
+                  </div>
+                  <p className="font-sans text-[13px] text-[#2d3133] leading-relaxed pl-10 whitespace-pre-wrap">
+                    {comment.content}
+                  </p>
                 </div>
-                <p className="font-sans text-[13px] text-[#2d3133] leading-relaxed pl-10">
-                  {comment.content}
-                </p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

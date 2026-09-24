@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TopNavBar } from './components/TopNavBar';
 import { HeroSection } from './components/HeroSection';
 import { BentoTraditions } from './components/BentoTraditions';
@@ -41,8 +41,21 @@ export default function App() {
     theme: 'light',
   });
 
-  // Forum state
-  const [comments, setComments] = useState<AgoraComment[]>(AGORA_COMMENTS_DATA);
+  // Forum state - khởi tạo rỗng (chỉ hiển thị khi có người đóng góp), hỗ trợ lưu trữ cục bộ
+  const [comments, setComments] = useState<AgoraComment[]>(() => {
+    try {
+      const saved = localStorage.getItem('mln_user_agora_comments');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('mln_user_agora_comments', JSON.stringify(comments));
+    } catch {}
+  }, [comments]);
 
   // Modals state
   const [selectedPhilosopher, setSelectedPhilosopher] = useState<Philosopher | null>(null);
@@ -109,7 +122,7 @@ export default function App() {
       likes: 1,
       userLiked: true,
     };
-    setComments([commentItem, ...comments]);
+    setComments((prev) => [commentItem, ...prev]);
   };
 
   const handleLikeComment = (id: string) => {

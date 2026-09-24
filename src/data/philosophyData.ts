@@ -465,34 +465,7 @@ export const LEXICON: LexiconItem[] = [
 
 export const LEXICON_DATA = LEXICON;
 
-export const AGORA_COMMENTS: AgoraComment[] = [
-  {
-    id: 'c-1',
-    author: 'TS. Nguyễn Hoàng Long',
-    role: 'Giảng viên Bộ môn Triết học Mác - Lênin',
-    timeAgo: 'Hôm qua',
-    content: 'Chủ đề 1: Tại sao nói Nhà nước là một hiện tượng lịch sử có tính giai cấp, không phải là một thiết chế vĩnh cửu? Theo Ph.Ăngghen, nhà nước chỉ sinh ra khi xã hội phân chia giai cấp đối kháng và chế độ tư hữu xuất hiện. Khi tiến tới xã hội cộng sản văn minh, khi nguyên nhân sinh ra nhà nước mất đi thì nhà nước sẽ tự tiêu vong.',
-    likes: 42,
-    userLiked: true
-  },
-  {
-    id: 'c-2',
-    author: 'Nhóm nghiên cứu MLN - Đại học FPT',
-    role: 'Sinh viên Khóa K18 - K19',
-    timeAgo: '2 ngày trước',
-    content: 'Chủ đề 2: Vận dụng 3 dấu hiệu tình thế cách mạng của Lênin vào Cách mạng Tháng Tám 1945: Tầng lớp trên (Nhật - Pháp) chia rẽ, tê liệt sau ngày 9/3; Tầng lớp dưới (nhân dân) cùng quẫn đến tột cùng vì nạn đói 2 triệu người; Mặt trận Việt Minh dấy lên phong trào phá kho thóc cứu đói. Khi thời cơ chín muồi vào giữa tháng 8, Bác Hồ đã phát động Tổng khởi nghĩa giành thắng lợi hoàn toàn.',
-    likes: 85,
-    userLiked: true
-  },
-  {
-    id: 'c-3',
-    author: 'Học giả Lê Thu Thủy',
-    role: 'Nghiên cứu sinh Chủ nghĩa Duy vật Lịch sử',
-    timeAgo: '3 ngày trước',
-    content: 'Chủ đề 3: Phân biệt rõ ranh giới giữa Cách mạng xã hội và Cải cách xã hội. Trong bối cảnh kinh tế tri thức hiện nay, các cuộc cải cách tiến bộ từng bộ phận đang chiếm ưu thế. Tuy nhiên, bài học của Lênin về việc cảnh giác với Chủ nghĩa Cải lương (từ bỏ mục tiêu cách mạng) và âm mưu "diễn biến hòa bình" vẫn còn nguyên giá trị thời đại đối với Việt Nam.',
-    likes: 31,
-    userLiked: false
-  }
-];
+export const AGORA_COMMENTS: AgoraComment[] = [];
 
 export const AGORA_COMMENTS_DATA = AGORA_COMMENTS;
+
