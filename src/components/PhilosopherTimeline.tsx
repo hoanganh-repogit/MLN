@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Philosopher } from '../types';
+import { resolveAssetUrl } from '../utils/asset';
 
 interface PhilosopherTimelineProps {
   philosophers: Philosopher[];
@@ -70,7 +71,7 @@ export const PhilosopherTimeline: React.FC<PhilosopherTimelineProps> = ({
                 <div className="relative h-48 w-full bg-[#191c1e] overflow-hidden">
                   {phil.imageUrl ? (
                     <img
-                      src={phil.imageUrl}
+                      src={resolveAssetUrl(phil.imageUrl)}
                       alt={phil.name}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                     />

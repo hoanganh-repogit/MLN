@@ -1,4 +1,5 @@
 import { Tradition, Philosopher, LectureChapter, LexiconItem, AgoraComment } from '../types';
+import { resolveAssetUrl } from '../utils/asset';
 
 export const TRADITIONS: Tradition[] = [
   {
@@ -133,7 +134,7 @@ export const LECTURE_CHAPTERS: LectureChapter[] = [
     chapterNumber: 'Chuyên đề I',
     quote: 'Nhà nước chẳng qua chỉ là một bộ máy của một giai cấp này dùng để trấn áp một giai cấp khác, điều đó trong chế độ Cộng hòa dân chủ cũng hoàn toàn giống như trong chế độ quân chủ.',
     quoteAuthor: 'Ph.Ăngghen — Nguồn gốc của gia đình, của chế độ tư hữu và của nhà nước (Toàn tập, t.22)',
-    authorImageUrl: '/images/engels.jpg',
+    authorImageUrl: resolveAssetUrl('/images/engels.jpg'),
     lexiconKey: 'Nhà nước',
     lexiconDefinition: 'Nhà nước là tổ chức chính trị của giai cấp thống trị về mặt kinh tế nhằm bảo vệ trật tự hiện hành và đàn áp sự phản kháng của các giai cấp khác.',
     content: [
@@ -152,7 +153,7 @@ export const LECTURE_CHAPTERS: LectureChapter[] = [
     chapterNumber: 'Chuyên đề II',
     quote: 'So với tổ chức thị tộc trước kia thì đặc trưng thứ nhất của nhà nước là ở chỗ nó phân chia thần dân của nó theo địa vực... Đặc trưng thứ hai là sự thiết lập một quyền lực công cộng... Đặc trưng thứ ba là thuế má và quốc trái.',
     quoteAuthor: 'V.I. Lênin — Nhà nước và cách mạng (Toàn tập, t.33)',
-    authorImageUrl: '/images/lenin.jpg',
+    authorImageUrl: resolveAssetUrl('/images/lenin.jpg'),
     lexiconKey: 'Địa vực lãnh thổ',
     lexiconDefinition: 'Phân chia thần dân theo địa vực lãnh thổ là đặc trưng đầu tiên của nhà nước, xóa bỏ sự liên kết theo huyết thống của thị tộc nguyên thủy.',
     content: [
@@ -171,7 +172,7 @@ export const LECTURE_CHAPTERS: LectureChapter[] = [
     chapterNumber: 'Chuyên đề III',
     quote: 'Chức năng xã hội là cơ sở của sự thống trị chính trị; và sự thống trị chính trị cũng chỉ kéo dài chừng nào nó còn thực hiện chức năng xã hội đó của nó.',
     quoteAuthor: 'Ph.Ăngghen — Chống Đuy-rinh (Toàn tập, t.20)',
-    authorImageUrl: '/images/engels.jpg',
+    authorImageUrl: resolveAssetUrl('/images/engels.jpg'),
     lexiconKey: 'Kiểu nhà nước',
     lexiconDefinition: 'Kiểu nhà nước là khái niệm chỉ bản chất giai cấp của nhà nước tương ứng với một hình thái kinh tế - xã hội nhất định.',
     content: [
@@ -192,7 +193,7 @@ export const LECTURE_CHAPTERS: LectureChapter[] = [
     chapterNumber: 'Chuyên đề IV',
     quote: 'Từ chỗ là những hình thức phát triển của lực lượng sản xuất, những quan hệ ấy trở thành những xiềng xích của các lực lượng sản xuất. Khi đó bắt đầu thời đại một cuộc cách mạng xã hội.',
     quoteAuthor: 'C.Mác — Góp phần phê phán khoa kinh tế chính trị (Toàn tập, t.13)',
-    authorImageUrl: '/images/marx.jpg',
+    authorImageUrl: resolveAssetUrl('/images/marx.jpg'),
     lexiconKey: 'Cách mạng xã hội',
     lexiconDefinition: 'Cách mạng xã hội là bước nhảy vọt làm thay đổi căn bản về chất của toàn bộ các lĩnh vực đời sống xã hội, chuyển biến từ hình thái kinh tế - xã hội cũ lên hình thái mới cao hơn.',
     content: [
@@ -213,7 +214,7 @@ export const LECTURE_CHAPTERS: LectureChapter[] = [
     chapterNumber: 'Chuyên đề V',
     quote: 'Giờ quyết định cho vận mệnh dân tộc đã đến. Toàn quốc đồng bào hãy đứng dậy đem sức ta mà tự giải phóng cho ta!',
     quoteAuthor: 'Hồ Chí Minh — Thư kêu gọi Tổng khởi nghĩa (Toàn tập, t.3)',
-    authorImageUrl: '/images/hochiminh.jpg',
+    authorImageUrl: resolveAssetUrl('/images/hochiminh.jpg'),
     lexiconKey: 'Tình thế cách mạng',
     lexiconDefinition: 'Tình thế cách mạng là trạng thái khách quan khi mâu thuẫn xã hội chín muồi đến đỉnh cao, khiến tầng lớp trên không thể sống như cũ và tầng lớp dưới không muốn sống như cũ.',
     content: [
@@ -234,7 +235,7 @@ export const LECTURE_CHAPTERS: LectureChapter[] = [
     chapterNumber: 'Chuyên đề VI',
     quote: 'Nhà nước pháp quyền xã hội chủ nghĩa là nhà nước của nhân dân, do nhân dân, vì nhân dân. Về bản chất, tất cả quyền lực nhà nước thuộc về nhân dân.',
     quoteAuthor: 'Đảng Cộng sản Việt Nam — Văn kiện Đại hội đại biểu toàn quốc lần thứ XII',
-    authorImageUrl: '/images/marxism_hero.jpg',
+    authorImageUrl: resolveAssetUrl('/images/marxism_hero.jpg'),
     lexiconKey: 'Nhà nước Pháp quyền XHCN',
     lexiconDefinition: 'Nhà nước pháp quyền XHCN Việt Nam hoạt động trên nguyên tắc "Đảng lãnh đạo, Nhà nước quản lý, Nhân dân làm chủ", thượng tôn pháp luật và coi trọng đạo đức xã hội.',
     content: [
@@ -256,7 +257,7 @@ export const PHILOSOPHERS: Philosopher[] = [
     id: 'karl-marx',
     name: 'Karl Marx (C.Mác)',
     symbol: 'M',
-    imageUrl: '/images/marx.jpg',
+    imageUrl: resolveAssetUrl('/images/marx.jpg'),
     era: '1818 – 1883',
     school: 'Chủ nghĩa duy vật biện chứng & lịch sử',
     location: 'Trier (Đức) / London (Anh)',
@@ -275,7 +276,7 @@ export const PHILOSOPHERS: Philosopher[] = [
     id: 'friedrich-engels',
     name: 'Friedrich Engels (Ph.Ăngghen)',
     symbol: 'E',
-    imageUrl: '/images/engels.jpg',
+    imageUrl: resolveAssetUrl('/images/engels.jpg'),
     era: '1820 – 1895',
     school: 'Chủ nghĩa duy vật lịch sử & Triết học Mác',
     location: 'Barmen (Đức) / London (Anh)',
@@ -294,7 +295,7 @@ export const PHILOSOPHERS: Philosopher[] = [
     id: 'v-i-lenin',
     name: 'V.I. Lênin (Vladimir Ilyich Lenin)',
     symbol: 'L',
-    imageUrl: '/images/lenin.jpg',
+    imageUrl: resolveAssetUrl('/images/lenin.jpg'),
     era: '1870 – 1924',
     school: 'Chủ nghĩa Mác - Lênin & Cách mạng Vô sản',
     location: 'Simbirsk / Moskva (Nga)',
@@ -313,7 +314,7 @@ export const PHILOSOPHERS: Philosopher[] = [
     id: 'ho-chi-minh',
     name: 'Hồ Chí Minh',
     symbol: 'H',
-    imageUrl: '/images/hochiminh.jpg',
+    imageUrl: resolveAssetUrl('/images/hochiminh.jpg'),
     era: '1890 – 1969',
     school: 'Tư tưởng Hồ Chí Minh & Triết học Mác - Lênin',
     location: 'Nghệ An / Hà Nội (Việt Nam)',

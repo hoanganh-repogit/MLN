@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { resolveAssetUrl } from '../utils/asset';
+
 interface HeroSectionProps {
   onStartLesson: () => void;
   onExploreMap: () => void;
@@ -57,7 +59,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <img
                 alt="Ba nhà kinh điển triết học Mác, Ăngghen và Lênin"
                 className="w-full h-auto object-cover max-h-[520px] transition-transform duration-700 group-hover:scale-105 opacity-90"
-                src="/images/marxism_hero.jpg"
+                src={resolveAssetUrl('/images/marxism_hero.jpg')}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
                 <div className="flex items-center gap-2 mb-2">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { LectureChapter, ReaderSettings } from '../types';
+import { resolveAssetUrl } from '../utils/asset';
 
 interface LectureReaderProps {
   chapters: LectureChapter[];
@@ -207,7 +208,7 @@ export const LectureReader: React.FC<LectureReaderProps> = ({
                 <div className="flex items-start gap-3.5">
                   {currentChapter.authorImageUrl && (
                     <img
-                      src={currentChapter.authorImageUrl}
+                      src={resolveAssetUrl(currentChapter.authorImageUrl)}
                       alt={currentChapter.quoteAuthor}
                       className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover object-top border-2 border-[#904d00]/30 shadow-xs shrink-0 mt-0.5"
                     />

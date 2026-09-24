@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Philosopher, Tradition, LexiconItem, ReaderSettings } from '../types';
+import { resolveAssetUrl } from '../utils/asset';
 
 /* ---------------- Philosopher Modal ---------------- */
 export const PhilosopherModal: React.FC<{
@@ -22,7 +23,7 @@ export const PhilosopherModal: React.FC<{
           <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border-2 border-[#904d00]/30 shadow-md shrink-0 bg-[#191c1e]">
             {philosopher.imageUrl ? (
               <img
-                src={philosopher.imageUrl}
+                src={resolveAssetUrl(philosopher.imageUrl)}
                 alt={philosopher.name}
                 className="w-full h-full object-cover object-top"
               />

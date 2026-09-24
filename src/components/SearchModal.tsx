@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Philosopher, Tradition, LexiconItem } from '../types';
+import { resolveAssetUrl } from '../utils/asset';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -142,7 +143,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       <div className="w-8 h-8 rounded-full overflow-hidden bg-white border border-[#c6c6cd] shrink-0 flex items-center justify-center">
                         {phil.imageUrl ? (
                           <img
-                            src={phil.imageUrl}
+                            src={resolveAssetUrl(phil.imageUrl)}
                             alt={phil.name}
                             className="w-full h-full object-cover object-top"
                           />
