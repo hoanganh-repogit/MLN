@@ -3,7 +3,15 @@ export const resolveAssetUrl = (path?: string): string => {
   if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
     return path;
   }
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+
   const base = import.meta.env.BASE_URL || '/';
-  return base.endsWith('/') ? `${base}${cleanPath}` : `${base}/${cleanPath}`;
+  const baseSegment = base.replace(/^\/+|\/+$/g, '');
+
+  let cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  if (baseSegment && cleanPath.startsWith(baseSegment + '/')) {
+    cleanPath = cleanPath.slice(baseSegment.length + 1);
+  }
+
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  return `${normalizedBase}${cleanPath}`;
 };
