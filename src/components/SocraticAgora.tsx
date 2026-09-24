@@ -3,7 +3,7 @@ import { AgoraComment } from '../types';
 
 interface SocraticAgoraProps {
   comments: AgoraComment[];
-  onAddComment: (comment: { author: string; role: string; content: string }) => void;
+  onAddComment: (comment: { author: string; role?: string; content: string }) => void;
   onLikeComment: (id: string) => void;
   onShowToast?: (msg: string) => void;
 }
@@ -15,10 +15,26 @@ export const SocraticAgora: React.FC<SocraticAgoraProps> = ({
 }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [author, setAuthor] = useState('');
-  const [role, setRole] = useState('Sinh viên FPT');
   const [content, setContent] = useState('');
-  const [totalAgreed, setTotalAgreed] = useState(85);
-  const [hasAgreedTopic, setHasAgreedTopic] = useState(false);
+  const [hasAgreedTopic, setHasAgreedTopic] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('mln_agora_has_agreed') === 'true';
+    } catch {
+      return false;
+    }
+  });
+  const [totalAgreed, setTotalAgreed] = useState<number>(() => {
+    try {
+      const saved = localStorage.getItem('mln_agora_total_agreed');
+      if (saved !== null) {
+        const parsed = parseInt(saved, 10);
+        return isNaN(parsed) ? 0 : parsed;
+      }
+      return 0;
+    } catch {
+      return 0;
+    }
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +42,6 @@ export const SocraticAgora: React.FC<SocraticAgoraProps> = ({
 
     onAddComment({
       author: author.trim() || 'Sinh viên Đại học FPT',
-      role: role.trim() || 'Nhóm nghiên cứu MLN',
       content: content.trim(),
     });
 
@@ -37,11 +52,21 @@ export const SocraticAgora: React.FC<SocraticAgoraProps> = ({
 
   const handleSupportTopic = () => {
     if (!hasAgreedTopic) {
-      setTotalAgreed(totalAgreed + 1);
+      const nextCount = totalAgreed + 1;
+      setTotalAgreed(nextCount);
       setHasAgreedTopic(true);
+      try {
+        localStorage.setItem('mln_agora_total_agreed', nextCount.toString());
+        localStorage.setItem('mln_agora_has_agreed', 'true');
+      } catch {}
     } else {
-      setTotalAgreed(totalAgreed - 1);
+      const nextCount = Math.max(0, totalAgreed - 1);
+      setTotalAgreed(nextCount);
       setHasAgreedTopic(false);
+      try {
+        localStorage.setItem('mln_agora_total_agreed', nextCount.toString());
+        localStorage.setItem('mln_agora_has_agreed', 'false');
+      } catch {}
     }
   };
 
@@ -98,7 +123,7 @@ export const SocraticAgora: React.FC<SocraticAgoraProps> = ({
                 <span className="material-symbols-outlined text-lg">
                   {hasAgreedTopic ? 'thumb_up' : 'thumb_up_off'}
                 </span>
-                <span>{totalAgreed} Người đồng tình luận điểm</span>
+                <span>{totalAgreed} Người đồng quan điểm</span>
               </button>
               <div className="flex items-center gap-2 text-[#45464d]">
                 <span className="material-symbols-outlined text-lg">forum</span>
@@ -123,31 +148,17 @@ export const SocraticAgora: React.FC<SocraticAgoraProps> = ({
               <h4 className="font-sans text-sm font-bold text-[#191c1e] uppercase tracking-wider">
                 Gửi luận giải / Phản biện của bạn
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-sans text-xs font-medium text-[#45464d] mb-1">
-                    Họ tên hoặc Nhóm:
-                  </label>
-                  <input
-                    type="text"
-                    value={author}
-                    onChange={(e) => setAuthor(e.target.value)}
-                    placeholder="Ví dụ: Nhóm 01 / Học giả..."
-                    className="w-full px-3 py-2 text-xs border border-[#c6c6cd] rounded bg-white focus:outline-none focus:border-[#904d00]"
-                  />
-                </div>
-                <div>
-                  <label className="block font-sans text-xs font-medium text-[#45464d] mb-1">
-                    Vai trò / Lớp:
-                  </label>
-                  <input
-                    type="text"
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                    placeholder="Ví dụ: Sinh viên FPT K18..."
-                    className="w-full px-3 py-2 text-xs border border-[#c6c6cd] rounded bg-white focus:outline-none focus:border-[#904d00]"
-                  />
-                </div>
+              <div>
+                <label className="block font-sans text-xs font-medium text-[#45464d] mb-1">
+                  Họ tên hoặc Nhóm:
+                </label>
+                <input
+                  type="text"
+                  value={author}
+                  onChange={(e) => setAuthor(e.target.value)}
+                  placeholder="Ví dụ: Nhóm 01 / Sinh viên / Học giả..."
+                  className="w-full px-3 py-2 text-xs border border-[#c6c6cd] rounded bg-white focus:outline-none focus:border-[#904d00]"
+                />
               </div>
               <div>
                 <label className="block font-sans text-xs font-medium text-[#45464d] mb-1">
@@ -203,7 +214,7 @@ export const SocraticAgora: React.FC<SocraticAgoraProps> = ({
                           {comment.author}
                         </span>
                         <span className="font-sans text-[11px] text-[#76777d]">
-                          {comment.role} • {comment.timeAgo}
+                          {comment.role ? `${comment.role} • ` : ''}{comment.timeAgo}
                         </span>
                       </div>
                     </div>

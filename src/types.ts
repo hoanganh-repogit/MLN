@@ -55,7 +55,7 @@ export interface LexiconItem {
 export interface AgoraComment {
   id: string;
   author: string;
-  role: string;
+  role?: string;
   timeAgo: string;
   content: string;
   likes: number;

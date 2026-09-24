@@ -112,11 +112,11 @@ export default function App() {
     setIsLexiconOpen(true);
   };
 
-  const handleAddComment = (newComment: { author: string; role: string; content: string }) => {
+  const handleAddComment = (newComment: { author: string; role?: string; content: string }) => {
     const commentItem: AgoraComment = {
       id: `c-${Date.now()}`,
       author: newComment.author,
-      role: newComment.role,
+      role: newComment.role || '',
       timeAgo: 'Vừa xong',
       content: newComment.content,
       likes: 1,
